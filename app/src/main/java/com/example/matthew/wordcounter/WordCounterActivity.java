@@ -19,15 +19,17 @@ public class WordCounterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_word_counter);
-        sentenceEditText = findViewById(R.id.sentence_text);
-        counterButton = findViewById(R.id.button_counter);
-        answerText = findViewById(R.id.answer_count);
+        this.sentenceEditText = findViewById(R.id.sentence_text);
+        this.counterButton = findViewById(R.id.button_counter);
+        this.answerText = findViewById(R.id.answer_count);
     }
 
     public void onCounterButtonClicked(View button) {
 //        String sentence = sentenceEditText.getText().toString();
         int countWords = WordCounter.countWords(sentenceEditText.getText().toString());
-        answerText.setText(countWords + " words");
+        String countWordString = String.valueOf(countWords);
+        answerText.setText(countWordString); //if you just want the number
+//        answerText.setText(countWords + " words"); //if you want to add int + string
 
 //        Log.d(getClass().toString(), "onCounterButtonClicked was called");
 //        Log.d(getClass().toString(), "The sentence constructed was '" + sentence + "'");
